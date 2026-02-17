@@ -61,6 +61,7 @@ class HttpLib:
     def get(self, endpoint, args=None, mode=None, stream=False):
         headers = {'Accept-Encoding': 'gzip'}
         access_token = None
+        args = dict(args)
         if args and 'access_token' in args:
             access_token = args.pop('access_token')
 
@@ -85,6 +86,7 @@ class HttpLib:
              mode=None, stream=False):
         headers = {}
         access_token = None
+        args = dict(args)
         if args and 'access_token' in args:
             access_token = args.pop('access_token')
         elif data and isinstance(data, dict) and 'access_token' in data:
