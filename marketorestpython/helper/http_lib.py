@@ -92,6 +92,7 @@ class HttpLib:
         if args and 'access_token' in args:
             access_token = args.pop('access_token')
         elif data and isinstance(data, dict) and 'access_token' in data:
+            data = dict(data)
             access_token = data.pop('access_token')
 
         if access_token:
